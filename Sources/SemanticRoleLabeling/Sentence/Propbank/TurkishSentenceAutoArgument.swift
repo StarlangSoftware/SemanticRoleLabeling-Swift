@@ -10,6 +10,12 @@ import AnnotatedSentence
 
 public class TurkishSentenceAutoArgument : SentenceAutoArgument{
     
+    /// Given the sentence for which the predicate(s) were determined before, this method automatically assigns
+    /// semantic role labels to some/all words in the sentence. The method first finds the first predicate, then assuming
+    /// that the shallow parse tags were preassigned, assigns ÖZNE tagged words ARG0; NESNE tagged words ARG1. If the
+    /// verb is in passive form, ÖZNE tagged words are assigned as ARG1.
+    /// - Parameter sentence: The sentence for which semantic roles will be determined automatically.
+    /// - Returns: If the method assigned at least one word a semantic role label, the method returns true; false otherwise.
     public override func autoArgument(sentence: AnnotatedSentence) -> Bool {
         var modified : Bool = false
         var predicateId : String? = nil

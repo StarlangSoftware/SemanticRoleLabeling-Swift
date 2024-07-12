@@ -22,6 +22,9 @@ public class TurkishSentenceAutoFramePredicate : SentenceAutoFramePredicate{
         self.frameNet = frameNet
     }
     
+    /// Checks all possible frame predicates and annotate them.
+    /// - Parameter sentence: The sentence for which frame predicates will be determined automatically.
+    /// - Returns: True, if at least one frame predicate is annotated, false otherwise.
     public override func autoPredicate(sentence: AnnotatedSentence) -> Bool {
         let candidateList = sentence.predicateFrameCandidates(frameNet: frameNet)
         for word in candidateList{
